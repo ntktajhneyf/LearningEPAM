@@ -98,6 +98,7 @@ public class Darts
             }
         }
         Console.WriteLine($"The winner is player number {bestPlayerIndex + 1} with score of {higestPlayerScore}");
+        Console.WriteLine($"The winner is player number {bestPlayerIndex + 1} with score of {higestPlayerScore}");
 
         return higestPlayerScore;
 
