@@ -1,0 +1,124 @@
+@import "reset";
+@import "vars";
+
+$primary-color: #333;
+$fonts-stack: roboto, sans-serif;
+
+%message-shared {
+  border: 1px black solid;
+  padding: 10px;
+  color: $primary-color;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $primary-color;
+}
+
+.block {
+  width: 200px;
+  height: 75px;
+  border-radius: 10px;
+  margin: 20px;
+  position: relative;
+}
+
+.mainGrid {
+  display: grid;
+}
+.mainGrid div {
+  div {
+    border: 1px black solid;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.menu {
+  ul {
+    list-style-type: none;
+  }
+  li {
+    a {
+      font-family: $fonts-stack;
+      color: $primary-color;
+
+      &:hover {
+        color: aqua;
+      }
+    }
+  }
+}
+
+.message {
+  @extend %message-shared;
+}
+.error {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+@for $i from 1 through 15 {
+  .item {
+    background-image: url(../images/item-#{$i}.png);
+  }
+}
+
+@mixin large-text {
+  font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+  
+  }
+  color: black;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
+
+}
+
+.menu {
+  @include flex-between;
+}
+
+.text {
+  @include large-text;
+}
+
+@mixin colors ($text, $background, $border){
+  color: $text;
+  background-color: $background;
+  border-color: $border;
+}
+$values: #ff0000, #00ff00, #0000ff;
+.success {
+  @include colors($values... )
+}
